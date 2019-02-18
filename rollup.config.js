@@ -45,6 +45,7 @@ export default {
 
                 const dir = dirname(importer);
 
+                // eslint-disable-next-line max-statements
                 const r = async (importee, importer) => {
                     if (importee.startsWith('@tld/')) return r(resolve(__dirname, importee, 'src'));
 
