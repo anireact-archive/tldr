@@ -14,7 +14,7 @@ import { tl, Tldr } from '@tld/r';
 import * as lib from './lib';
 
 const App = () => (
-    <Tldr id='en' lib={lib}>
+    <Tldr id="en" lib={lib}>
         {tl`${host} invited ${guest} and ${guests} other guests to their party on ${date}.`}
     </Tldr>
 );
