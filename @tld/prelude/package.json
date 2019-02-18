@@ -1,0 +1,24 @@
+{
+    "author": "Marina Miyaoka <miyaokamarina@gmail.com> (https://t.me/miyaokamarina)",
+    "bugs": "https://github.com/anireact/tld/issues?q=is:issue+label:@tld/prelude",
+    "description": "Shared functions for Tld/R and Tld/R Core.",
+    "homepage": "https://github.com/anireact/tld/tree/master/@tld/prelude",
+    "license": "MIT",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.esm.js",
+    "name": "@tld/prelude",
+    "repository": "anireact/tld",
+    "scripts": {
+        "build": "yarn build:js && yarn build:ts",
+        "build:js": "rollup -c ../../rollup.config.js",
+        "build:ts": "tsc --declaration --emitDeclarationOnly --outDir dist --pretty --rootDir src",
+        "clean": "rimraf dist",
+        "prepare": "yarn run clean && yarn run build"
+    },
+    "types": "dist/index.d.ts",
+    "version": "1.0.0-wip.4",
+    "dependencies": {
+        "@babel/runtime": "^7.3.1",
+        "core-js": "^2.6.4"
+    }
+}
