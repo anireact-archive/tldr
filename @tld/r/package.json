@@ -1,13 +1,13 @@
 {
     "author": "Marina Miyaoka <miyaokamarina@gmail.com> (https://t.me/miyaokamarina)",
-    "bugs": "https://github.com/anireact/tld/issues?q=is:issue+label:@tld/r",
+    "bugs": "https://github.com/anireact/tldr/issues?q=is:issue+label:@tld/r",
     "description": "Tld/R — the translation daemon for modern web.",
-    "homepage": "https://github.com/anireact/tld/tree/master/@tld/r",
+    "homepage": "https://github.com/anireact/tldr/tree/master/@tld/r",
     "license": "MIT",
     "main": "dist/index.cjs.js",
     "module": "dist/index.esm.js",
     "name": "@tld/r",
-    "repository": "anireact/tld",
+    "repository": "anireact/tldr",
     "scripts": {
         "build": "yarn build:js && yarn build:ts",
         "build:js": "rollup -c ../../rollup.config.js",
@@ -16,12 +16,12 @@
         "prepare": "yarn run clean && yarn run build"
     },
     "types": "dist/index.d.ts",
-    "version": "1.0.0-wip.4",
+    "version": "1.0.0-wip.5",
     "dependencies": {
         "@babel/runtime": "^7.3.1",
-        "@tld/prelude": "^1.0.0-wip.4",
-        "@tld/r-402": "^1.0.0-wip.4",
-        "@tld/r-core": "^1.0.0-wip.4",
+        "@tld/prelude": "^1.0.0-wip.5",
+        "@tld/r-402": "^1.0.0-wip.5",
+        "@tld/r-core": "^1.0.0-wip.5",
         "core-js": "^2.6.4"
     },
     "peerDependencies": {

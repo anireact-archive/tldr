@@ -1,6 +1,6 @@
 {
     "author": "Marina Miyaoka <miyaokamarina@gmail.com> (https://t.me/miyaokamarina)",
-    "repository": "anireact/tld",
+    "repository": "anireact/tldr",
     "private": true,
     "workspaces": [
         "@tld/*"
