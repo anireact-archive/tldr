@@ -1,4 +1,4 @@
-import { abs, identity, isFunction, isString, max, min, where2 } from '@tld/prelude';
+import { abs, identity, isFunction, isString, max, min, w } from '@anireact/prelude';
 import { Tld } from '@tld/r-core';
 
 import {
@@ -20,9 +20,7 @@ export const resolveTime = (o?: TimeOptions, t = false, d = false): (<M>(tld: Tl
     if (!t && o.timeStyle) return resolveTime({ ...o, ...createOptionsForTime(o.timeStyle) }, true, d)(tld);
     if (!d && o.dateStyle) return resolveTime({ ...o, ...createOptionsForDate(o.dateStyle) }, t, true)(tld);
 
-    return where2(
-        new Intl.DateTimeFormat((tld.tags as unknown) as string[], o),
-        new (Intl as any).RelativeTimeFormat((tld.tags as unknown) as string[], o),
+    return w(
         (dtFormat, rtFormat): TimeResolved => {
             return {
                 // Defaults ↓
@@ -38,9 +36,9 @@ export const resolveTime = (o?: TimeOptions, t = false, d = false): (<M>(tld: Tl
                 ...o,
 
                 // Resolve bounds ↓
-                upperValue: o.unit ? Infinity : max(abs(o.upperValue), abs(o.maximumValue), 0),
+                upperValue: o.unit ? Infinity : max(abs(o.upperValue!), abs(o.maximumValue!), 0),
                 upperUnit: o.upperUnit || o.maximumUnit || 'day',
-                lowerValue: o.unit ? -Infinity : min(-abs(o.lowerValue), -abs(o.maximumValue), 0),
+                lowerValue: o.unit ? -Infinity : min(-abs(o.lowerValue!), -abs(o.maximumValue!), 0),
                 lowerUnit: o.lowerUnit || o.maximumUnit || 'day',
 
                 // Functions ↓
@@ -48,5 +46,7 @@ export const resolveTime = (o?: TimeOptions, t = false, d = false): (<M>(tld: Tl
                 r: (diff, unit) => rtFormat.format(diff, unit),
             };
         },
+        new Intl.DateTimeFormat((tld.tags as unknown) as string[], o),
+        new (Intl as any).RelativeTimeFormat((tld.tags as unknown) as string[], o),
     );
 };

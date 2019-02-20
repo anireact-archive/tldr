@@ -1,4 +1,4 @@
-import { Strings } from '@tld/prelude';
+import { Strings } from '@anireact/prelude';
 import { Dict, RawDict, Tags } from '..';
 
 export interface Tl<M> {

@@ -1,4 +1,4 @@
-import { where1 } from '@tld/prelude';
+import { w } from '@anireact/prelude';
 import { RecordTimeOptions, RelativeTimeUnit, ShorthandTimeOptions } from '..';
 
 export const createOptionsForTime = (style: 'full' | 'long' | 'medium' | 'short') => {
@@ -29,7 +29,7 @@ export const createOptionsForShorthand = (s: Exclude<ShorthandTimeOptions, undef
         };
     }
 
-    return where1(s.split('-'), ([span, style]) => {
+    return w(([span, style]) => {
         if (span === 'time') {
             return {
                 timeStyle: style as 'full' | 'long' | 'medium' | 'short',
@@ -39,7 +39,7 @@ export const createOptionsForShorthand = (s: Exclude<ShorthandTimeOptions, undef
         return {
             dateStyle: style as 'full' | 'long' | 'medium' | 'short',
         };
-    });
+    }, s.split('-'));
 };
 
 // region Supplemental

@@ -22,9 +22,11 @@ module.exports = {
         ...x,
         types: x.main.replace(/\.js$/u, '.d.ts'),
         scripts: {
-            'build:babel': 'babel --source-maps --out-dir dist --extensions .ts src',
-            'build:tsc': 'tsc --declaration --emitDeclarationOnly --outDir dist --pretty --rootDir src',
-            build: 'yarn build:babel && yarn build:tsc',
+            build: 'yarn build:js && yarn build:ts',
+            'build:js': 'rollup -c ../../rollup.config.js',
+            'build:ts': 'tsc --declaration --emitDeclarationOnly --outDir dist --pretty --rootDir src',
+            clean: 'rimraf dist',
+            prepare: 'yarn run clean && yarn run build',
         },
     }),
     finalize: async pkg_ => {

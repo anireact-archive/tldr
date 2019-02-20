@@ -1,15 +1,16 @@
-import { getMap, maybe, toArray } from '@tld/prelude';
+import { always, concat, foldR, getM, map, maybe } from '@anireact/prelude';
 import { Dict, Lib, Msg, MsgId, Tl, TlId, TlIds, Tls } from '..';
 
 export const toDict = <M>(Lib: Lib<M>, fallback: TlIds, id: TlId): Dict<M> => {
     return new Map(
-        createLookupList(Lib, fallback, id).reduceRight(
+        foldR(
+            createLookupList(Lib, fallback, id),
             // Merge all dictionaries in list from right to left
             // (Messages from left dictionaries take priority) ↓
             (dict, tl) => {
-                return [...dict, ...tl.dict];
+                return concat(dict, tl.dict);
             },
-            [] as [MsgId, Msg<M>][],
+            [] as ReadonlyArray<[MsgId, Msg<M>]>,
         ),
     );
 };
@@ -23,7 +24,7 @@ const createLookupList = <M>(lib: Lib<M>, fallback: TlIds, id: TlId) => {
 
     if (queue.length > 0)
         do
-            idsToTls(lib, queue.shift()!.fallback).forEach(tl => {
+            map(idsToTls(lib, queue.shift()!.fallback), tl => {
                 if (!result.has(tl)) {
                     result.add(tl);
                     queue.push(tl);
@@ -38,14 +39,14 @@ const createLookupList = <M>(lib: Lib<M>, fallback: TlIds, id: TlId) => {
         result.add(Tl);
     }
 
-    return toArray(result);
+    return result;
 };
 
 const idsToTls = <M>(lib: Lib<M>, list: TlIds) => {
     return list.flatMap(id => {
         return maybe<Tl<M>, Tls<M> | Tl<M>>(
             // Get a Tl from map ↓
-            getMap(lib, id),
+            getM(lib, id),
 
             // If a Tl with required identifier exists, add it ↓
             tl => {
@@ -53,7 +54,7 @@ const idsToTls = <M>(lib: Lib<M>, list: TlIds) => {
             },
 
             // Otherwise, add an empty array ↓
-            [],
+            always([]),
         );
     });
 };

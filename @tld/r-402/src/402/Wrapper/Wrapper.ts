@@ -1,4 +1,4 @@
-import { identity } from '@tld/prelude';
+import { identity } from '@anireact/prelude';
 import { Tld } from '@tld/r-core';
 import { Format, Options, Resolve, Resolved } from '..';
 

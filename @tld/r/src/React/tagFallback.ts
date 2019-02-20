@@ -1,10 +1,10 @@
-import { Strings } from '@tld/prelude';
+import { append, map, Strings } from '@anireact/prelude';
 
 export const tagFallback = (ss: Strings) => (...params: any[]) => {
-    return [
-        ...params.map((reference, i) => {
+    return append(
+        map(params, (reference, i) => {
             return `${ss[i]}${reference}`;
         }),
         ss[ss.length - 1],
-    ].join('');
+    ).join('');
 };

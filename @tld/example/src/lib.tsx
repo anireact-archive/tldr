@@ -41,7 +41,7 @@ export const ja: RawTl<ReactNode> = {
                 other: '自分のパーティー',
             }),
 
-        '{}の': date => `${date}（${as<Date>(date).reformat({ unit: 'auto', numeric: 'auto' })}）`,
+        '{}の': date => `${date}（${as<Date>(date).reformat({ unit: 'auto', numeric: 'auto' })}）の`,
         '他の{}人': guests => `他の${offset(guests, 1)}人`,
 
         '{} invited {} and {} other guests to their party on {}.': (host, guest, guests, date) => {

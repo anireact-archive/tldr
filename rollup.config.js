@@ -1,10 +1,7 @@
 import { promises } from 'fs';
 import { resolve, dirname } from 'upath';
 
-import { terser } from 'rollup-plugin-terser';
-import { compress } from 'brotli';
 import babel from 'rollup-plugin-babel';
-import gzip from 'rollup-plugin-gzip';
 
 const { stat } = promises;
 
@@ -12,9 +9,7 @@ const extensions = ['.tsx', '.ts', '.mjs', '.jsx', '.js', '.json'];
 
 // eslint-disable-next-line import/no-default-export
 export default {
-    external: importee => {
-        return importee === 'react' || importee.startsWith('core-js') || importee.startsWith('@babel');
-    },
+    external: [/^[^.]/u],
     input: 'src/index.ts',
     output: [
         {
@@ -29,12 +24,6 @@ export default {
         },
     ],
     plugins: [
-        terser(),
-        gzip(),
-        gzip({
-            customCompression: content => compress(Buffer.from(content), { mode: 1 }),
-            fileName: '.br',
-        }),
         babel({
             extensions,
             runtimeHelpers: true,
@@ -47,8 +36,6 @@ export default {
 
                 // eslint-disable-next-line max-statements
                 const r = async (importee, importer) => {
-                    if (importee.startsWith('@tld/')) return r(resolve(__dirname, importee, 'src'));
-
                     const name = resolve(dir, importee);
 
                     for (const ext of extensions) {

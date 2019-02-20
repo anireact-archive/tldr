@@ -11,18 +11,20 @@
         "start": "webpack-dev-server --mode development"
     },
     "types": "dist/index.d.ts",
-    "version": "1.0.0-wip.5",
+    "version": "1.0.0-wip.6",
     "private": true,
     "dependencies": {
+        "@anireact/prelude": "^1.0.0-wip.2",
         "@babel/runtime": "^7.3.1",
-        "@tld/r": "^1.0.0-wip.5",
+        "@tld/r": "^1.0.0-wip.6",
         "core-js": "^2.6.4",
         "react": "^16.8.1",
         "react-dom": "^16.8.1"
     },
     "devDependencies": {
-        "@types/react": "^16.8.2",
+        "@types/react": "^16.8.1",
         "@types/react-dom": "^16.8.0",
+        "@types/styled-jsx": "^2.2.8",
         "babel-loader": "^8.0.5",
         "html-webpack-plugin": "^3.2.0",
         "source-map-loader": "^0.2.4",

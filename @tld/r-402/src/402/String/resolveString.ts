@@ -1,4 +1,4 @@
-import { identity, isFunction, isNone, isString } from '@tld/prelude';
+import { identity, isFunction, isNone, isString } from '@anireact/prelude';
 import { Tag, Tld } from '@tld/r-core';
 import { StringOptions, StringResolved } from './String';
 

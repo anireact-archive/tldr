@@ -1,4 +1,4 @@
-import { abs, sign, truncate } from '@tld/prelude';
+import { abs, sgn, truncate } from '@anireact/prelude';
 import { NativeRelativeTimeUnit } from '..';
 
 export const createDiffs = (a: Date, b: Date): ReadonlyMap<NativeRelativeTimeUnit, number> => {
@@ -43,12 +43,12 @@ export const createDiffs = (a: Date, b: Date): ReadonlyMap<NativeRelativeTimeUni
 // region Supplemental
 const generic = (a: Date, b: Date, init: number, get: (d: Date) => number, set: (d: Date, n: number) => number) => {
     const diff = abs(init);
-    const s = sign((a as any) - (b as any));
+    const s = sgn((a as any) - (b as any));
     const back = cloneDate(a);
 
     set(back, get(back) - s * diff);
 
-    const adjust = sign((back as any) - (b as any)) === -s;
+    const adjust = sgn((back as any) - (b as any)) === -s;
 
     return s * (diff - (adjust as any)) || 0;
 };

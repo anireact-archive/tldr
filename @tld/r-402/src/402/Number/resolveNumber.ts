@@ -1,4 +1,4 @@
-import { identity, isFunction, isString, where2 } from '@tld/prelude';
+import { identity, isFunction, isString, w } from '@anireact/prelude';
 import { Tld } from '@tld/r-core';
 
 import {
@@ -25,9 +25,7 @@ export const resolveNumber = (o?: NumberOptions): (<M>(tld: Tld<M>) => NumberRes
     // Imply `style: 'currency'` if currency is specified ↓
     if (o.currency && o.style !== 'currency') return resolveNumber({ ...o, style: 'currency' })(tld);
 
-    return where2(
-        new Intl.NumberFormat((tld.tags as unknown) as string[], o),
-        new Intl.PluralRules((tld.tags as unknown) as string[], o),
+    return w(
         (numberFormat, pluralSelect): NumberResolved => {
             return {
                 // Defaults ↓
@@ -46,5 +44,7 @@ export const resolveNumber = (o?: NumberOptions): (<M>(tld: Tld<M>) => NumberRes
                 s: n => pluralSelect.select(n) as PluralCategory,
             };
         },
+        new Intl.NumberFormat((tld.tags as unknown) as string[], o),
+        new Intl.PluralRules((tld.tags as unknown) as string[], o),
     );
 };

@@ -1,3 +1,4 @@
+import { map } from '@anireact/prelude';
 import { tl, string, time, Tldr, translated, number } from '@tld/r';
 import React, { useState } from 'react';
 import { render } from 'react-dom';
@@ -84,7 +85,7 @@ const Demo = () => {
 
 const Switcher = translated(({}, { id, lib, switchTl }) => (
     <ul>
-        {[...lib.values()].map(tl => (
+        {map(lib, ([, tl]) => (
             <li key={tl.id} onClick={() => switchTl(tl.id)}>
                 {tl.id === id ? '* ' : ''} {tl.name}
             </li>

@@ -1,4 +1,4 @@
-import { isString } from '@tld/prelude';
+import { isString } from '@anireact/prelude';
 import { MsgId } from '@tld/r-core';
 import { ReactElement } from 'react';
 import { tagFallback } from './tagFallback';

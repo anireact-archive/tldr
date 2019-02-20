@@ -1,4 +1,4 @@
-import { Strings, uniq } from '@tld/prelude';
+import { prepend, Strings, uniq } from '@anireact/prelude';
 import { createTld, RawLib, switchTl, TlId, TlIds } from '@tld/r-core';
 import React, { ReactNode, useState } from 'react';
 import { TldrContext } from './TldrContext';
@@ -12,7 +12,7 @@ export interface Tldr {
 
 export const Tldr = ({ id = '', lib = [], fallback = [], children }: Tldr) => {
     const [context, setState] = useState<TldrContext>({
-        ...createTld(id as TlId, (uniq([id, ...fallback]) as unknown) as TlIds, lib),
+        ...createTld(id as TlId, (uniq(prepend(id, fallback)) as unknown) as TlIds, lib),
         switchTl: id => {
             // eslint-disable-next-line promise/catch-or-return, promise/prefer-await-to-then
             Promise.resolve().then(() => {

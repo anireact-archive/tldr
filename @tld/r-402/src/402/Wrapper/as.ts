@@ -1,4 +1,4 @@
-import { identity } from '@tld/prelude';
+import { identity } from '@anireact/prelude';
 import { NumberOptions, NumberResolved, StringOptions, StringResolved, TimeOptions, TimeResolved } from '..';
 import { Wrapper } from './Wrapper';
 
