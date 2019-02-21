@@ -1,4 +1,4 @@
-import { identity, isFunction, isString, w } from '@anireact/prelude';
+import { identity, isFunction, isString } from '@anireact/prelude';
 import { Tld } from '@tld/r-core';
 
 import {
@@ -25,26 +25,23 @@ export const resolveNumber = (o?: NumberOptions): (<M>(tld: Tld<M>) => NumberRes
     // Imply `style: 'currency'` if currency is specified ↓
     if (o.currency && o.style !== 'currency') return resolveNumber({ ...o, style: 'currency' })(tld);
 
-    return w(
-        (numberFormat, pluralSelect): NumberResolved => {
-            return {
-                // Defaults ↓
-                localeMatcher: 'lookup',
-                transform: identity,
+    const numberFormat = new Intl.NumberFormat((tld.tags as unknown) as string[], o);
+    const pluralRules = new Intl.PluralRules((tld.tags as unknown) as string[], o);
 
-                // Native ↓
-                ...((numberFormat.resolvedOptions() as unknown) as ResolvedNumberFormatOptions),
-                ...((pluralSelect.resolvedOptions() as unknown) as ResolvedPluralRulesOptions),
+    return {
+        // Defaults ↓
+        localeMatcher: 'lookup',
+        transform: identity,
 
-                // Original ↓
-                ...o,
+        // Native ↓
+        ...((numberFormat.resolvedOptions() as unknown) as ResolvedNumberFormatOptions),
+        ...((pluralRules.resolvedOptions() as unknown) as ResolvedPluralRulesOptions),
 
-                // Functions ↓
-                f: n => numberFormat.format(n),
-                s: n => pluralSelect.select(n) as PluralCategory,
-            };
-        },
-        new Intl.NumberFormat((tld.tags as unknown) as string[], o),
-        new Intl.PluralRules((tld.tags as unknown) as string[], o),
-    );
+        // Original ↓
+        ...o,
+
+        // Functions ↓
+        f: n => numberFormat.format(n),
+        s: n => pluralRules.select(n) as PluralCategory,
+    };
 };
