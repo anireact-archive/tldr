@@ -76,6 +76,14 @@
     "@babel/runtime" "^7.3.1"
     core-js "^2.6.5"
 
+"@anireact/prelude@^1.0.0-wip.4":
+  version "1.0.0-wip.4"
+  resolved "https://registry.yarnpkg.com/@anireact/prelude/-/prelude-1.0.0-wip.4.tgz#c360a6eae41a3a7ac4e856d07cfa4133ad808f61"
+  integrity sha512-fDkCO2uiGopnga/9iIAQQO2cs9DpxL2PXE/rUww3vudDSsIXnQsOYivWqyXQp/uMlnxJRKDR5CxdT0+hxSEc2A==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    core-js "^2.6.5"
+
 "@anireact/prettier-config@^1.0.0-wip.21":
   version "1.0.0-wip.21"
   resolved "https://registry.yarnpkg.com/@anireact/prettier-config/-/prettier-config-1.0.0-wip.21.tgz#5bebfe34d0b3d36d4b5880388aca25140d1ceaca"
