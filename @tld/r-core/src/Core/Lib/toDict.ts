@@ -1,5 +1,8 @@
 import { always, concat, foldR, getM, map, maybe } from '@anireact/prelude';
-import { Dict, Lib, Msg, MsgId, Tl, TlId, TlIds, Tls } from '..';
+import { Dict } from '../Dict/Dict';
+import { Msg, MsgId } from '../Msg/Msg';
+import { Tl, TlId, TlIds, Tls } from '../Tl/Tl';
+import { Lib } from './Lib';
 
 export const toDict = <M>(Lib: Lib<M>, fallback: TlIds, id: TlId): Dict<M> => {
     return new Map(

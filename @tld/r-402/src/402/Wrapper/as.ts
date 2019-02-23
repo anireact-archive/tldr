@@ -1,5 +1,7 @@
 import { identity } from '@anireact/prelude';
-import { NumberOptions, NumberResolved, StringOptions, StringResolved, TimeOptions, TimeResolved } from '..';
+import { NumberOptions, NumberResolved } from '../Number/Number';
+import { StringOptions, StringResolved } from '../String/String';
+import { TimeOptions, TimeResolved } from '../Time/Time';
 import { Wrapper } from './Wrapper';
 
 export type As<V extends number | string | Date> = V extends number

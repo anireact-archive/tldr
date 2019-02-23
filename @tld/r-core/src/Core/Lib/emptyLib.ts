@@ -1,3 +1,3 @@
-import { Lib } from '..';
+import { Lib } from './Lib';
 
-export const emptyLib = new Map() as Lib<any>;
+export const emptyLib: Lib<any> = new Map();

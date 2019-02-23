@@ -1,5 +1,6 @@
 import { always, fold, getM, maybe } from '@anireact/prelude';
-import { concatTl, Lib } from '..';
+import { concatTl } from '../Tl/concatTl';
+import { Lib } from './Lib';
 
 export const concatLib = <M>(a: Lib<M>, b: Lib<M>): Lib<M> => {
     return fold(

@@ -1,5 +1,5 @@
 import { toList } from '@anireact/prelude';
-import { NativeRelativeTimeUnit } from '..';
+import { NativeRelativeTimeUnit } from './Time';
 
 export const selectUnit = (
     map: ReadonlyMap<NativeRelativeTimeUnit, number>,

@@ -7,7 +7,7 @@ import {
     PluralCategory,
     ResolvedNumberFormatOptions,
     ResolvedPluralRulesOptions,
-} from '..';
+} from './Number';
 
 export const resolveNumber = (o?: NumberOptions): (<M>(tld: Tld<M>) => NumberResolved) => tld => {
     // No options, defaults ↓

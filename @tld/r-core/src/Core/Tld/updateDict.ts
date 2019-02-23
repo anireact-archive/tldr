@@ -1,4 +1,5 @@
-import { Tld, toDict } from '..';
+import { toDict } from '../Lib/toDict';
+import { Tld } from './Tld';
 
 export const updateDict = <M>(tld: Tld<M>): Tld<M> => {
     return {

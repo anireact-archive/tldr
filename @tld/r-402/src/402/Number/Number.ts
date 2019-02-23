@@ -1,5 +1,6 @@
 import { StaticMsg, Tag, Tags } from '@tld/r-core';
-import { Currency, RecordOptions, Resolved, Table } from '..';
+import { RecordOptions, Resolved, Table } from '../Abstract/Abstract';
+import { Currency } from './Currency';
 
 // region Main
 export type NumberOptions = RecordNumberOptions | FunctionNumberOptions | ShorthandNumberOptions | undefined;

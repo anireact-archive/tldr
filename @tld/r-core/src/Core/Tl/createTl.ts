@@ -1,4 +1,5 @@
-import { RawTl, Tags, Tl, TlIds } from '..';
+import { Tags } from '../Tag/Tag';
+import { RawTl, Tl, TlIds } from './Tl';
 
 export const createTl = <M>(raw: RawTl<M>): Tl<M> => {
     return {

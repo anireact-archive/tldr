@@ -1,15 +1,7 @@
 import { abs, identity, isFunction, isString, max, min } from '@anireact/prelude';
 import { Tld } from '@tld/r-core';
-
-import {
-    createOptionsForDate,
-    createOptionsForShorthand,
-    createOptionsForTime,
-    ResolvedDateTimeFormatOptions,
-    ResolvedRelativeTimeFormatOptions,
-    TimeOptions,
-    TimeResolved,
-} from '..';
+import { createOptionsForDate, createOptionsForShorthand, createOptionsForTime } from './createOptions';
+import { ResolvedDateTimeFormatOptions, ResolvedRelativeTimeFormatOptions, TimeOptions, TimeResolved } from './Time';
 
 export const resolveTime = (o?: TimeOptions, t = false, d = false): (<M>(tld: Tld<M>) => TimeResolved) => tld => {
     // No options, defaults ↓

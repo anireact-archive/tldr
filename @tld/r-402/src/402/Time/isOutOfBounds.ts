@@ -1,4 +1,4 @@
-import { NativeRelativeTimeUnit, TimeResolved } from '..';
+import { NativeRelativeTimeUnit, TimeResolved } from './Time';
 
 export const isOutOfBounds = (
     s: number,

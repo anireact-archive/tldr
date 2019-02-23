@@ -1,6 +1,6 @@
 import { identity } from '@anireact/prelude';
 import { Tld } from '@tld/r-core';
-import { Format, Options, Resolve, Resolved } from '..';
+import { Format, Options, Resolve, Resolved } from '../Abstract/Abstract';
 
 export class Wrapper<V = any, O extends Options = any, R extends Resolved = any> extends String {
     readonly tld: Tld<any>;

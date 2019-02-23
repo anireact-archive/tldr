@@ -1,4 +1,4 @@
-import { RawTl, RawTls, Tl, TlId } from '..';
+import { RawTl, RawTls, Tl, TlId } from '../Tl/Tl';
 
 export type Lib<M> = ReadonlyMap<TlId, Tl<M>>;
 

@@ -1,4 +1,8 @@
-import { createLib, RawLib, Tld, TlId, TlIds, updateDict } from '..';
+import { createLib } from '../Lib/createLib';
+import { RawLib } from '../Lib/Lib';
+import { TlId, TlIds } from '../Tl/Tl';
+import { Tld } from './Tld';
+import { updateDict } from './updateDict';
 
 export const createTld = <M>(id: TlId, fallback: TlIds, lib: RawLib<M>): Tld<M> => {
     return updateDict(({

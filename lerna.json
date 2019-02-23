@@ -1,5 +1,5 @@
 {
     "extends": "@anireact/lerna-config",
     "packages": ["@tld/*"],
-    "version": "1.0.0-wip.9"
+    "version": "1.0.0-wip.12"
 }

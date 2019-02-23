@@ -1,5 +1,10 @@
 import { Tld } from '@tld/r-core';
-import { createDiffs, isOutOfBounds, resolveTime, selectUnit, TimeOptions, TimeResolved, Wrapper } from '..';
+import { Wrapper } from '../Wrapper/Wrapper';
+import { createDiffs } from './createDiffs';
+import { isOutOfBounds } from './isOutOfBounds';
+import { resolveTime } from './resolveTime';
+import { selectUnit } from './selectUnit';
+import { TimeOptions, TimeResolved } from './Time';
 
 export const formatTime = ([a, b = new Date()]: [Date, Date?], o?: TimeOptions) => (tld: Tld<any>) => {
     return new Wrapper<[Date, Date], TimeOptions, TimeResolved>(tld, [a, b], o, resolveTime, ([a, b], r) => {

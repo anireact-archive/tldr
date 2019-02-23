@@ -1,6 +1,5 @@
-// region Main
 import { StaticMsg, Tags } from '@tld/r-core';
-import { RecordOptions, Resolved, Table } from '..';
+import { RecordOptions, Resolved, Table } from '../Abstract/Abstract';
 
 export type StringOptions = RecordStringOptions | FunctionStringOptions | ShorthandStringOptions | undefined;
 

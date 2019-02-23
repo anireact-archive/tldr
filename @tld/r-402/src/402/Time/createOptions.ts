@@ -1,4 +1,4 @@
-import { RecordTimeOptions, RelativeTimeUnit, ShorthandTimeOptions } from '..';
+import { RecordTimeOptions, RelativeTimeUnit, ShorthandTimeOptions } from './Time';
 
 export const createOptionsForTime = (style: 'full' | 'long' | 'medium' | 'short') => {
     if (style === 'short') return timeShort;

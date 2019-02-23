@@ -9,7 +9,7 @@ import {
     diffYears,
 } from '@anireact/prelude';
 
-import { NativeRelativeTimeUnit } from '..';
+import { NativeRelativeTimeUnit } from './Time';
 
 export const createDiffs = (a: Date, b: Date): ReadonlyMap<NativeRelativeTimeUnit, number> => {
     return new Map<NativeRelativeTimeUnit, number>([

@@ -1,5 +1,6 @@
 import { Strings } from '@anireact/prelude';
-import { Dict, RawDict, Tags } from '..';
+import { Dict, RawDict } from '../Dict/Dict';
+import { Tags } from '../Tag/Tag';
 
 export interface Tl<M> {
     readonly id: TlId;

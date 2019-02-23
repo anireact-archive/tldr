@@ -1,5 +1,5 @@
 import { Tag, Tags } from '@tld/r-core';
-import { RecordOptions, Resolved } from '..';
+import { RecordOptions, Resolved } from '../Abstract/Abstract';
 
 // region Main
 export type TimeOptions = RecordTimeOptions | FunctionTimeOptions | ShorthandTimeOptions | undefined;

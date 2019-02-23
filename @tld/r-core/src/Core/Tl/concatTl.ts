@@ -1,5 +1,5 @@
 import { concat, uniq } from '@anireact/prelude';
-import { Tl } from '..';
+import { Tl } from './Tl';
 
 export const concatTl = <M>(a: Tl<M>, b: Tl<M>): Tl<M> => {
     return {

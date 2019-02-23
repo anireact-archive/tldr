@@ -1,6 +1,7 @@
 import { isNumber } from '@anireact/prelude';
 import { StaticMsg } from '@tld/r-core';
-import { Wrapper, NumberResolved, NumberTable } from '..';
+import { Wrapper } from '../Wrapper/Wrapper';
+import { NumberResolved, NumberTable } from './Number';
 
 export const plural = <M>(v: Wrapper<number, any, NumberResolved>, t: NumberTable<M>): StaticMsg<M> => {
     const n = v.value;

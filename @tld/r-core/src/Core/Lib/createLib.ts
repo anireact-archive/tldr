@@ -1,5 +1,7 @@
 import { isList, map, valuesO } from '@anireact/prelude';
-import { createTl, Lib, RawLib, Tl, TlId } from '..';
+import { Lib, RawLib, TlId } from '../..';
+import { createTl } from '../Tl/createTl';
+import { Tl } from '../Tl/Tl';
 
 export const createLib = <M>(raw: RawLib<M>): Lib<M> => {
     return new Map(

@@ -11,12 +11,12 @@
         "start": "webpack-dev-server --mode development"
     },
     "types": "dist/index.d.ts",
-    "version": "1.0.0-wip.9",
+    "version": "1.0.0-wip.12",
     "private": true,
     "dependencies": {
         "@anireact/prelude": "^1.0.0-wip.2",
         "@babel/runtime": "^7.3.1",
-        "@tld/r": "^1.0.0-wip.9",
+        "@tld/r": "^1.0.0-wip.12",
         "core-js": "^2.6.4",
         "react": "^16.8.1",
         "react-dom": "^16.8.1"
