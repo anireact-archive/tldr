@@ -6,8 +6,8 @@
         "@tld/*"
     ],
     "scripts": {
-        "lint": "eslint --ext '.js,.ts' -f ./node_modules/eslint-codeframe-formatter . && prettier --list-different './**/*.{js,jsx,ts,tsx,css,less,scss,html,json,md}'",
-        "fix": "eslint --fix --ext '.js,.ts' -f ./node_modules/eslint-codeframe-formatter . && prettier --write './**/*.{js,jsx,ts,tsx,css,less,scss,html,json,md}'"
+        "lint": "eslint --ext '.js,.ts,.jsx,.tsx' -f ./node_modules/eslint-codeframe-formatter . && prettier --list-different './**/*.{js,jsx,ts,tsx,css,less,scss,html,json,md}'",
+        "fix": "eslint --fix --ext '.js,.ts,.jsx,.tsx' -f ./node_modules/eslint-codeframe-formatter . && prettier --write './**/*.{js,jsx,ts,tsx,css,less,scss,html,json,md}'"
     },
     "devDependencies": {
         "@anireact/babel-config": "^1.0.0-wip.21",
