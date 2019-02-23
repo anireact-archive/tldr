@@ -16,7 +16,7 @@
         "prepublishOnly": "yarn run clean && yarn run build"
     },
     "types": "dist/index.d.ts",
-    "version": "1.0.0-wip.8",
+    "version": "1.0.0-wip.9",
     "dependencies": {
         "@anireact/prelude": "^1.0.0-wip.4",
         "@babel/runtime": "^7.3.1",
